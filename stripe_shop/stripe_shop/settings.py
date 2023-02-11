@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -24,6 +23,12 @@ SECRET_KEY = 'django-insecure-axo*6%#50=q%au%$$t-huhg2m=o7pl(-(8gle)7u!u=pvs-1gx
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+if DEBUG:
+    STRIPE_PUBLISHABLE_KEY = 'test_publishable_key'
+    STRIPE_SECRET_KEY = 'test_secret_key'
+
+
 
 ALLOWED_HOSTS = []
 
@@ -37,6 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #  additional packages
+    'rest_framework',
+
+    #  my apps
+    'stripe_shop.apps.items',
+    'stripe_shop.apps.payments',
 ]
 
 MIDDLEWARE = [
